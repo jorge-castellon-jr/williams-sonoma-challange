@@ -40,15 +40,11 @@ export default {
   components: {
     ProductCard,
   },
-  async asyncData() {
+  async asyncData({ route }) {
+    // console.log(document.URL)
     return await axios
-      .get(
-        'https://www.westelm.com/services/catalog/v4/category/shop/new/all-new/index.json'
-      )
-      .then(async (res) => ({
-        result: await res.data,
-        page: 1,
-      }))
+      .get(`http://localhost:3000/index.json`)
+      .then((res) => ({ result: res.data, page: 1 }))
       .catch((err) => console.error(err))
   },
 }
