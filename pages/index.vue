@@ -40,12 +40,12 @@ export default {
   components: {
     ProductCard,
   },
-  async asyncData({ route }) {
+  async asyncData({ redirect }) {
     // console.log(document.URL)
     return await axios
       .get('http://williams-sonoma-challenge.castellon.dev/index.json')
       .then((res) => ({ result: res.data, page: 1 }))
-      .catch((err) => console.error(err))
+      .catch((err) => redirect(404, '/404'))
   },
 }
 </script>

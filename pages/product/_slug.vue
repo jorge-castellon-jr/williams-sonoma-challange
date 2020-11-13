@@ -54,7 +54,7 @@ export default {
       let result = await axios
         .get('http://williams-sonoma-challenge.castellon.dev/index.json')
         .then((res) => res.data.groups.find((item) => item.id === params.slug))
-        .catch((err) => console.error(err))
+        .catch((err) => redirect(404, '/404'))
 
       console.log(route)
 
