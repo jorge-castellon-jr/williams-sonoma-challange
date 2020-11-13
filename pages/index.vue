@@ -41,16 +41,15 @@ export default {
     ProductCard,
   },
   async asyncData() {
-    let result = await axios
+    return await axios
       .get(
         'https://www.westelm.com/services/catalog/v4/category/shop/new/all-new/index.json'
       )
-      .then(async (res) => await res.data)
+      .then(async (res) => ({
+        result: await res.data,
+        page: 1,
+      }))
       .catch((err) => console.error(err))
-    return {
-      result,
-      page: 1,
-    }
   },
 }
 </script>
