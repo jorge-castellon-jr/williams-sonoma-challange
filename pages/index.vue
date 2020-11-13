@@ -1,6 +1,6 @@
 <template>
   <v-row justify="center" align="center">
-    <v-col cols="12" lg="10">
+    <v-col cols="12" lg="10" v-if="result">
       <h1 class="text-h2">Category: {{ result.name }}</h1>
       <v-row>
         <v-col
