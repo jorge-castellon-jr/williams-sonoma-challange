@@ -21,3 +21,7 @@ $ yarn test
 ```
 
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+
+Estimated Time:
+
+- Nov 12 8:00 PM - 11:30 PM
