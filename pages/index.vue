@@ -43,7 +43,7 @@ export default {
   async asyncData({ route }) {
     // console.log(document.URL)
     return await axios
-      .get(`http://localhost:3000/index.json`)
+      .get('http://williams-sonoma-challenge.castellon.dev/index.json')
       .then((res) => ({ result: res.data, page: 1 }))
       .catch((err) => console.error(err))
   },

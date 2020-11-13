@@ -52,7 +52,7 @@ export default {
   async asyncData({ route, params }) {
     try {
       let result = await axios
-        .get(`http://localhost:3000/index.json`)
+        .get('http://williams-sonoma-challenge.castellon.dev/index.json')
         .then((res) => res.data.groups.find((item) => item.id === params.slug))
         .catch((err) => console.error(err))
 
