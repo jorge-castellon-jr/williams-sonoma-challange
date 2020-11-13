@@ -45,7 +45,7 @@ export default {
       .get(
         'https://www.westelm.com/services/catalog/v4/category/shop/new/all-new/index.json'
       )
-      .then((res) => res.data)
+      .then(async (res) => await res.data)
       .catch((err) => console.error(err))
     return {
       result,
