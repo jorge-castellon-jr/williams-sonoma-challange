@@ -1,11 +1,6 @@
 <template>
   <v-hover v-slot="{ hover }">
-    <v-card
-      v-if="content"
-      class="product__card"
-      :to="`/product/${content.id}`"
-      hover
-    >
+    <v-card v-if="content" class="product__card" hover>
       <v-img
         :height="content.thumbnail.height"
         :src="content.thumbnail.href"
@@ -15,7 +10,7 @@
         <v-expand-transition>
           <div
             v-if="hover"
-            class="d-flex justify-center align-center text-center transition-fast-in-fast-out orange darken-2 v-card--reveal display-3 white--text"
+            class="justify-center text-center d-flex align-center transition-fast-in-fast-out orange darken-2 v-card--reveal display-3 white--text"
             style="height: 100%"
           >
             <span v-if="content.priceRange">
@@ -42,7 +37,10 @@
         </v-expand-transition>
       </v-img>
 
-      <v-card-title>{{ content.name }}</v-card-title>
+      <v-card-title>
+        {{ content.name }}
+        <span class="caption">Tap to view Price</span>
+      </v-card-title>
 
       <v-card-text class="align-self-end">
         <v-row align="center" class="mx-0">
@@ -55,9 +53,15 @@
             size="14"
           ></v-rating>
 
-          <div class="grey--text ml-4">{{ displayReviews }}</div>
+          <div class="ml-4 grey--text">{{ displayReviews }}</div>
         </v-row>
       </v-card-text>
+      <v-card-actions>
+        <v-spacer />
+        <v-btn :to="`/product/${content.id}`" color="orange darken-2" text>
+          Learn More
+        </v-btn>
+      </v-card-actions>
     </v-card>
   </v-hover>
 </template>
