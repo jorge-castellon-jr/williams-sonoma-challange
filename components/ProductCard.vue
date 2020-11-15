@@ -39,7 +39,7 @@
 
       <v-card-title>
         {{ content.name }}
-        <span class="caption">Tap to view Price</span>
+        <span class="caption">Tap/Hover to view Price</span>
       </v-card-title>
 
       <v-card-text class="align-self-end">
@@ -97,6 +97,7 @@ export default {
     height: 100%;
     padding-bottom: 38px;
     position: relative;
+    cursor: auto;
   }
 }
 
