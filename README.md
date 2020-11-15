@@ -32,4 +32,4 @@ Nuxt.js is similar to [Next.js](https://nextjs.org). It provides a lot of toolin
 
 Vuetify is a design framework that is based on the [Material Design](https://material.io) framework. It has many prebuilt and functional components that can save time when trying to build tedious components, like a navigation slide bar.
 
-Unfortunately, I have not used unit testing much to be able to use it efficiently in this project. A majority of what jest code I wrote I also learned during the process of this challenge. I'm still in the beggining phases of unit testing, so my understand of how it all works or how it should work isn't there.
+Unfortunately, I have not used unit testing much to be able to use it efficiently in this project. A majority of what jest code I wrote I also learned during the process of this challenge. I'm still in the beggining phases of unit testing, so my understand of how it all works or how it should work isn't there. But I won't let that stop me! While learning unit testing I found out how we can automate QA testing which will be a huge help for my personal projects later on.
