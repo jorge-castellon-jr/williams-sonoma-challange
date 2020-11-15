@@ -40,17 +40,12 @@ export default {
   components: {
     ProductCard,
   },
-  async asyncData() {
-    let result = await axios
-      .get(
-        'https://www.westelm.com/services/catalog/v4/category/shop/new/all-new/index.json'
-      )
-      .then((res) => res.data)
-      .catch((err) => console.error(err))
-    return {
-      result,
-      page: 1,
-    }
+  async asyncData({ redirect }) {
+    // console.log(document.URL)
+    return await axios
+      .get('http://williams-sonoma-challenge.castellon.dev/index.json')
+      .then((res) => ({ result: res.data, page: 1 }))
+      .catch((err) => redirect(404, '/404'))
   },
 }
 </script>

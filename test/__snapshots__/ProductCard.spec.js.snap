@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Product Card Component is a Vue instance 1`] = `
+"<div class=\\"product__card v-card v-card--hover v-sheet theme--light\\">
+  <div aria-label=\\"\\" class=\\"v-image v-responsive theme--light\\" style=\\"height: 363px;\\" rel=\\"thumbnail\\">
+    <transition-stub name=\\"fade-transition\\" mode=\\"in-out\\">
+      <div class=\\"v-image__image v-image__image--preload v-image__image--cover\\" style=\\"background-position: center center;\\"></div>
+    </transition-stub>
+    <div class=\\"v-responsive__content\\">
+      <transition-stub name=\\"expand-transition\\">
+        <!---->
+      </transition-stub>
+    </div>
+  </div>
+  <div class=\\"v-card__title\\">
+    Bearaby Velvet Weighted Blanket - Silver Topaz
+    <span class=\\"caption\\">Tap to view Price</span></div>
+  <div class=\\"v-card__text align-self-end\\">
+    <div class=\\"row mx-0 align-center\\">
+      <div class=\\"v-rating v-rating--readonly v-rating--dense\\"><button type=\\"button\\" tabindex=\\"-1\\" class=\\"v-icon notranslate v-icon--link mdi mdi-star-outline theme--light accent--text\\" style=\\"font-size: 14px;\\"></button><button type=\\"button\\" tabindex=\\"-1\\" class=\\"v-icon notranslate v-icon--link mdi mdi-star-outline theme--light accent--text\\" style=\\"font-size: 14px;\\"></button><button type=\\"button\\" tabindex=\\"-1\\" class=\\"v-icon notranslate v-icon--link mdi mdi-star-outline theme--light accent--text\\" style=\\"font-size: 14px;\\"></button><button type=\\"button\\" tabindex=\\"-1\\" class=\\"v-icon notranslate v-icon--link mdi mdi-star-outline theme--light accent--text\\" style=\\"font-size: 14px;\\"></button><button type=\\"button\\" tabindex=\\"-1\\" class=\\"v-icon notranslate v-icon--link mdi mdi-star-outline theme--light accent--text\\" style=\\"font-size: 14px;\\"></button></div>
+      <div class=\\"ml-4 grey--text\\">No Reviews</div>
+    </div>
+  </div>
+  <div class=\\"v-card__actions\\">
+    <div class=\\"spacer\\"></div> <a class=\\"v-btn v-btn--flat v-btn--router v-btn--text theme--light v-size--default orange--text text--darken-2\\"><span class=\\"v-btn__content\\">
+        Learn More
+      </span></a>
+  </div>
+</div>"
+`;

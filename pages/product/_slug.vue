@@ -1,5 +1,5 @@
 <template>
-  <v-row>
+  <v-row v-if="result">
     <v-col cols="12" sm="6">
       <v-carousel>
         <v-carousel-item
@@ -49,17 +49,48 @@ import axios from 'axios'
 
 export default {
   name: 'SingleProduct',
-  async asyncData({ params }) {
+  async asyncData({ route, params }) {
     try {
       let result = await axios
-        .get(
-          'https://www.westelm.com/services/catalog/v4/category/shop/new/all-new/index.json'
-        )
+        .get('http://williams-sonoma-challenge.castellon.dev/index.json')
         .then((res) => res.data.groups.find((item) => item.id === params.slug))
-        .catch((err) => console.error(err))
+        .catch((err) => redirect(404, '/404'))
+
+      console.log(route)
+
+      let url = 'https://th-articles.netlify.com/',
+        currentProduct = url + params.slug,
+        logoURL = `${url}/logo.svg`
+
       return {
-        title: result.name,
         result,
+        structuredData: {
+          '@context': 'http://schema.org',
+          '@graph': [
+            {
+              '@type': 'Product',
+              url: currentProduct,
+              name: result.name || 'Did not work',
+              image: result.thumbnail.href,
+              description: result.name || 'Did not work',
+              aggregateRating: {
+                ratingValue: result.reviews.averageRating,
+                reviewCount: result.reviews.reviewCount,
+              },
+              offers: {
+                '@type': 'Offer',
+                priceCurrency: 'USD',
+                price: result.price ? result.price.selling : null,
+                lowPrice: result.priceRange ? result.priceRange.low : null,
+                highPrice: result.priceRange ? result.priceRange.high : null,
+                seller: {
+                  '@type': 'Organization',
+                  name: 'Williams Sonoma California',
+                },
+              },
+            },
+          ],
+        },
       }
     } catch (err) {
       console.error(err)
@@ -67,10 +98,26 @@ export default {
     }
   },
   head() {
-    return {
-      title:
-        `${this.title} | Williams Sonoma Challenge` ||
-        'Product Page | Williams Sonoma Challenge',
+    if (this.result) {
+      return {
+        title:
+          `${this.result.name} | Williams Sonoma Challenge` ||
+          'Product Page | Williams Sonoma Challenge',
+        meta: [
+          {
+            hid: 'description',
+            name: 'description',
+            content: this.result.name || '',
+          },
+        ],
+        __dangerouslyDisableSanitizers: ['script'],
+        script: [
+          {
+            innerHTML: JSON.stringify(this.structuredData),
+            type: 'application/ld+json',
+          },
+        ],
+      }
     }
   },
   methods: {
@@ -82,9 +129,11 @@ export default {
     images() {
       let images = []
 
-      images.push(this.result.hero)
+      if (this.result) {
+        images.push(this.result.hero)
 
-      this.result.images.forEach((image) => images.push(image))
+        this.result.images.forEach((image) => images.push(image))
+      }
 
       return images
     },
