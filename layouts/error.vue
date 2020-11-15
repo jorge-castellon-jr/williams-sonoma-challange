@@ -12,14 +12,7 @@
 </template>
 
 <script>
-import NavBar from '~/components/NavBar'
-import SiteFooter from '~/components/SiteFooter'
-
 export default {
-  components: {
-    NavBar,
-    SiteFooter,
-  },
   layout: 'empty',
   props: {
     error: {

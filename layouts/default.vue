@@ -11,8 +11,8 @@
 </template>
 
 <script>
-import NavBar from '~/components/NavBar'
-import SiteFooter from '~/components/SiteFooter'
+import NavBar from '~/components/layout/NavBar'
+import SiteFooter from '~/components/layout/SiteFooter'
 
 export default {
   components: {
